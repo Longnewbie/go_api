@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test CORS</title>
+  </head>
+  <body>
+    <h1>Test CORS API</h1>
+    <script>
+      // http://localhost:8080/api/v1/users
+
+      async function callApi() {
+        try {
+          const response = await fetch("http://localhost:8080/api/v1/users", {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              "X-API-Key": "5ae486dd-1026-4ee0-9ce2-be601e25d64b",
+            },
+          });
+          const data = await response.json();
+          console.log("API Response:", data);
+        } catch (error) {
+          console.error("Error:", error);
+        }
+      }
+
+      callApi();
+    </script>
+  </body>
+</html>
